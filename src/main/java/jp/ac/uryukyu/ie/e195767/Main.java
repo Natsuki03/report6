@@ -51,5 +51,8 @@ class DifferrenceDay{
 }
 
 public class Main {
-
+    public static void main(String[] args){
+        DifferrenceDay difDay = new DifferrenceDay();
+        difDay.difDay();
+    }
 }
