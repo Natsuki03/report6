@@ -52,13 +52,24 @@ class DifferrenceDay{
 }
 
 /**
+ * AfterDayメソッドとBeforeDayメソッドの親クラス。
+ */
+class CalDay{
+    Scanner scan = new Scanner(System.in);
+    SimpleDateFormat d = new SimpleDateFormat("yyyy年MM月dd日");//日付のフォーマット。2020年01月01日のように表示される。
+    Date Today = new Date();
+    void calDay(){
+        //サブクラスで定義
+    }
+}
+
+
+/**
  * 現在から入力した日付後の日付を調べるメソッド。
  */
-class AfterDay{
-    void afterDay(){
-        Scanner scan = new Scanner(System.in);
-        SimpleDateFormat d = new SimpleDateFormat("yyyy年MM月dd日");//日付のフォーマット。2020年01月01日のように表示される。
-        Date Today = new Date();
+class AfterDay extends CalDay{
+    @Override
+    void calDay(){
         System.out.println("今日から何日後の日付が知りたいですか?日数だけを入力してください。（例：50日後が知りたい場合→50）");
         String Day1 = scan.nextLine();//標準出力をString型で読み込む。
         int addDay = Integer.parseInt(Day1);//Day1をString型からint型に変換する。
@@ -73,13 +84,11 @@ class AfterDay{
 
 
 /**
- * 現在から入力した日付前の日数を調べるメソッド。
+ * 現在から入力した日付前の日数を調べるメソッド。やることはAfterDayメソッドと基本的には同じ。
  */
-class BeforeDay{
-    void beforeDay(){
-        Scanner scan = new Scanner(System.in);
-        SimpleDateFormat d = new SimpleDateFormat("yyyy年MM月dd日");
-        Date Today = new Date();
+class BeforeDay extends CalDay{
+    @Override
+    void calDay(){
         System.out.println("今日から何日前の日付が知りたいですか?日数だけを入力してください。（例：50日前 が知りたい場合→50）");
         String Day1 = scan.nextLine();
         int addDay = Integer.parseInt(Day1);
@@ -92,15 +101,13 @@ class BeforeDay{
     }
 }
 
-
-
 public class Main {
     public static void main(String[] args){
 //        DifferrenceDay difDay = new DifferrenceDay();
 //        difDay.difDay();
-//        AfterDay afterDay = new AfterDay();
-//        afterDay.afterDay();
-        BeforeDay beforeDay = new BeforeDay();
-        beforeDay.beforeDay();
+        AfterDay afterDay = new AfterDay();
+        afterDay.calDay();
+//        BeforeDay beforeDay = new BeforeDay();
+//        beforeDay.calDay();
     }
 }
