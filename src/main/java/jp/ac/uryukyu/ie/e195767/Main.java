@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  * 特定の日付から特定の日付の差を求めるメソッド。
@@ -50,9 +51,33 @@ class DifferrenceDay{
     }
 }
 
+/**
+ * 現在から入力した日付後の日付を調べるメソッド。
+ */
+class AfterDay{
+    void afterDay(){
+        Scanner scan = new Scanner(System.in);
+        SimpleDateFormat d = new SimpleDateFormat("yyyy年MM月dd日");//日付のフォーマット。2020年01月01日のように表示される。
+        Date Today = new Date();
+        System.out.println("今日から何日後の日付が知りたいですか?日数だけを入力してください。（例：50日後が知りたい場合→50）");
+        String Day1 = scan.nextLine();//標準出力をString型で読み込む。
+        int addDay = Integer.parseInt(Day1);//Day1をString型からint型に変換する。
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(Today);
+        cal.add(Calendar.DATE,addDay);//ここで加算の計算が行われている。
+        Date d1 = cal.getTime();//Date型に変換。
+        String d2 = d.format(d1);
+        System.out.println("今日から"+Day1+"日後は"+d2+"です");
+    }
+
+}
+
+
 public class Main {
     public static void main(String[] args){
-        DifferrenceDay difDay = new DifferrenceDay();
-        difDay.difDay();
+//        DifferrenceDay difDay = new DifferrenceDay();
+//        difDay.difDay();
+        AfterDay afterDay = new AfterDay();
+        afterDay.afterDay();
     }
 }
