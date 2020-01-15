@@ -69,15 +69,38 @@ class AfterDay{
         String d2 = d.format(d1);
         System.out.println("今日から"+Day1+"日後は"+d2+"です");
     }
-
 }
+
+
+/**
+ * 現在から入力した日付前の日数を調べるメソッド。
+ */
+class BeforeDay{
+    void beforeDay(){
+        Scanner scan = new Scanner(System.in);
+        SimpleDateFormat d = new SimpleDateFormat("yyyy年MM月dd日");
+        Date Today = new Date();
+        System.out.println("今日から何日前の日付が知りたいですか?日数だけを入力してください。（例：50日前 が知りたい場合→50）");
+        String Day1 = scan.nextLine();
+        int addDay = Integer.parseInt(Day1);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(Today);
+        cal.add(Calendar.DATE,-addDay);
+        Date d1 = cal.getTime();
+        String d2 = d.format(d1);
+        System.out.println("今日から"+Day1+"日前は"+d2+"です");
+    }
+}
+
 
 
 public class Main {
     public static void main(String[] args){
 //        DifferrenceDay difDay = new DifferrenceDay();
 //        difDay.difDay();
-        AfterDay afterDay = new AfterDay();
-        afterDay.afterDay();
+//        AfterDay afterDay = new AfterDay();
+//        afterDay.afterDay();
+        BeforeDay beforeDay = new BeforeDay();
+        beforeDay.beforeDay();
     }
 }
