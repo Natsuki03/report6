@@ -10,9 +10,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AfterDayTest {
 
+    /**
+     *今日(2020年01月20日)の1日後を求めるテスト。
+     * テストする日によって、assartEqualsのexpectedのところを変更しないといけないのが難点。
+     */
     @Test
     void calDay() {
-        SimpleDateFormat d = new SimpleDateFormat("yyyy年MM月dd日");//日付のフォーマット。2020年01月01日のように表示される。
+        SimpleDateFormat d = new SimpleDateFormat("yyyy年MM月dd日");
         Date Today = new Date();
         int addDay = 1;
         Calendar cal = Calendar.getInstance();
