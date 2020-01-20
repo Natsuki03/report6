@@ -103,11 +103,26 @@ class BeforeDay extends CalDay{
 
 public class Main {
     public static void main(String[] args){
-//        DifferrenceDay difDay = new DifferrenceDay();
-//        difDay.difDay();
-        AfterDay afterDay = new AfterDay();
-        afterDay.calDay();
-//        BeforeDay beforeDay = new BeforeDay();
-//        beforeDay.calDay();
+        Scanner scan = new Scanner(System.in);
+        System.out.println("実行したい物を次から選んで、数字を入力してください。"+System.lineSeparator()+"1　特定の日時から特定の日時までの差を求める"+System.lineSeparator()+
+                "2　今日からある日数後の日付を求める"+System.lineSeparator()+"3　今日からある日数前の日付を求める");//ユーザーが入力したコマンドを実行する。
+        int command = scan.nextInt();//標準出力をint型で読み込む。
+        switch(command){//標準出力の結果で、動かすメソッドを決める。
+            case 1:
+                DifferrenceDay difDay = new DifferrenceDay();
+                difDay.difDay();
+                break;
+            case 2:
+                AfterDay afterDay = new AfterDay();
+                afterDay.calDay();
+                break;
+            case 3:
+                BeforeDay beforeDay = new BeforeDay();
+                beforeDay.calDay();
+                break;
+            default:
+                System.out.println("提示された選択肢を選んでください");//標準出力が1,2,3以外の場合の処理。
+        }
     }
+
 }
